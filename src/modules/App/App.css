@@ -1,0 +1,28 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.header {
+  flex: 1;
+}
+.content {
+  background: #edecec;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+.footer {
+  flex: 1;
+}
+.aSide {
+  height: 100;
+  width: 100;
+  margin: 20;
+  text-indent: 'center';
+  display: 'inline-block';
+}
+.center {
+  flex: 1;
+  flex-grow: 1;
+}
