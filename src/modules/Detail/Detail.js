@@ -6,6 +6,7 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconYes from 'material-ui/svg-icons/action/check-circle';
 import IconNo from 'material-ui/svg-icons/navigation/cancel';
+import IconNeed from 'material-ui/svg-icons/action/account-circle';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -65,6 +66,46 @@ class Detail extends React.Component {
               className={styles.reviewList}
             >
 
+              {this.state.infos.check_infos.map((value, key) => {
+
+                const selectStyle = (result) => {
+                  if (result === 0) {
+                    return styles.reviewImgNo;
+                  }
+                  if (result === 1) {
+                    return styles.reviewImgOk;
+                  }
+                  if (result === 2) {
+                    return styles.reviewImgNeed;
+                  }
+                };
+                const selectIcon = (result) => {
+                  if (result === 0) {
+                    return (<IconNo style={{color: '#F44336'}}/>);
+                  }
+                  if (result === 1) {
+                    return (<IconYes style={{ color: '#4a90e2' }} />);
+                  }
+                  if (result === 2) {
+                    return (<IconNeed style={{color: '#fc3'}} />);
+                  }
+                };
+                const selectLable = (type) => {
+                  if(type === '')
+                }
+                return (
+                  <div key={value.id} className={styles.itemOk}>
+                    <div className={styles.header}>kkkkk</div>
+
+                    <img
+                      width="100%"
+                      className={selectStyle(value.result)}
+                      src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1491881963&di=67275035bf216da3ebffd3c70f30e648&src=http://img181.poco.cn/mypoco/myphoto/20110315/17/54704062201103151711088752081084673_012.jpg"
+                    />
+                    {selectIcon(value.result)}
+                  </div>
+                );
+              })}
               <div className={styles.itemOk}>
                 <div className={styles.header}>kkkk</div>
 

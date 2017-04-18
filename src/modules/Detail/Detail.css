@@ -32,24 +32,28 @@
 .reviewList.itemReviewing:hover {
 
 }
-.reviewList.header {
+.header {
   color: #999;
 }
 .reviewImgOk {
+  border-radius: 3px;
   box-shadow: 0px 0px 8px #4a90e2;
 }
 .reviewImgOk:hover {
   box-shadow: 0px 0px 20px #4a90e2;
 }
 .reviewImgNo {
+  border-radius: 3px;
   box-shadow: 0px 0px 8px #f00;
 }
 .reviewImgNo:hover {
   box-shadow: 0px 0px 20px #f00;
 }
-.reviewImgNeed {
 
+.reviewImgNeed {
+  border-radius: 3px;
+  box-shadow: 0px 0px 8px #fc3;
 }
 .reviewImgNeed:hover {
-
+  box-shadow: 0px 0px 20px #fc3;
 }
