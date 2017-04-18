@@ -4,10 +4,11 @@ const logger = require('morgan');
 const chalk = require('chalk');
 const path = require('path');
 const errorHandler = require('errorhandler');
+const proxy = require('express-http-proxy');
 
 /* load environment variables from .env file, where API keys and passwords are configured  */
 /* dotenv.load({path:'.env.example'}); */
-
+const proxyURL = 'localhost:9000';
 const app = express();
 
 /* Express configuration */
@@ -22,10 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // routers
-app.get('*', (req, res) => {
-  // res.render('header.html',{title: 'home'})
-  res.sendfile(path.join(__dirname, '../../dist/index.html'));
-});
+
 const jsonData = {'data': {'name': '一介布衣', 'url': 'http://yijiebuyi.'}};
 const jsonParser = bodyParser.json();
 app.post('/v1/exam_indication', jsonParser, function (req, res) {
@@ -35,6 +33,16 @@ app.post('/v1/exam_indication', jsonParser, function (req, res) {
   };
   res.json(jsonData);
   // create user in req.body
+});
+app.use('/api', proxy(proxyURL, {
+  forwardPath: function (req) {
+    console.log(req.url + ' proxy');
+    return require('url').parse('/api' + req.url).path;
+  }
+}));
+app.get('*', (req, res) => {
+  // res.render('header.html',{title: 'home'})
+  res.sendfile(path.join(__dirname, '../../dist/index.html'));
 });
 
 /* Error handleer */

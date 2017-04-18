@@ -1,0 +1,36 @@
+.paginate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline-width: 0;
+
+}
+.pagelink {
+
+}
+.page{
+  display: inline;
+  border: 0px solid #999;
+  border-radius: 2px;
+  padding :4px 10px;
+  margin: 0px 8px;
+  outline-width: 0;
+}
+.page a {
+  cursor: pointer;
+}
+.pageactive {
+  background-color: #009dda;
+}
+.pageactive a {
+  z-index: 3;
+  color: #fff;
+  outline-width: 0;
+  /*border-color: #337ab7;*/
+  /*background-color: #337ab7;*/
+}
+.searchbar {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}

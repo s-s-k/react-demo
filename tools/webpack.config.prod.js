@@ -4,7 +4,7 @@ const baseWebpackConfig = require('./webpack.config.base');
 const config = require('./config');
 
 
-module.exports = webpackMerge(baseWebpackConfig,{
+module.exports = webpackMerge(baseWebpackConfig, {
   entry:[
     './index.js'
   ],

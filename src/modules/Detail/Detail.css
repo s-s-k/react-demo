@@ -1,0 +1,55 @@
+.content {
+  background: #edecec;
+  flex: 5;
+  display: flex;
+  flex-direction: row;
+}
+.center {
+  flex:1;
+  flex-shrink: 1;
+}
+.carInfo {
+  width: 100%;
+  padding:30px 0px;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+.reviewList .itemOk {
+    box-shadow: '1 1 1 #f0f';
+}
+.reviewList .itemOk:hover{
+
+}
+
+.reviewList.itemNo {
+
+}
+.reviewList.itemNo:hover {
+}
+.reviewList.itemReviewing {
+
+}
+.reviewList.itemReviewing:hover {
+
+}
+.reviewList.header {
+  color: #999;
+}
+.reviewImgOk {
+  box-shadow: 0px 0px 8px #4a90e2;
+}
+.reviewImgOk:hover {
+  box-shadow: 0px 0px 20px #4a90e2;
+}
+.reviewImgNo {
+  box-shadow: 0px 0px 8px #f00;
+}
+.reviewImgNo:hover {
+  box-shadow: 0px 0px 20px #f00;
+}
+.reviewImgNeed {
+
+}
+.reviewImgNeed:hover {
+
+}

@@ -2,19 +2,17 @@ import React from 'react';
 import { Link } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Paper from 'material-ui/Paper';
-import Menu from 'material-ui/Menu';
-import MenuItem from 'material-ui/MenuItem';
+import ListIcon from 'material-ui/svg-icons/action/list';
+import IconButton from 'material-ui/IconButton';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import theme from './theme';
+import logo from './images/logo.png';
 
 import styles from './App.css';
 injectTapEventPlugin();
 
-const aSide = {
-  textAlign: 'center',
-  display: 'inline-block',
-  paddingTop: 10
-};
+
 const styleCenter = {
   flex: 1,
   flexWarp: 1,
@@ -22,31 +20,19 @@ const styleCenter = {
 };
 
 const App = (props) => (
-  <MuiThemeProvider>
+  <MuiThemeProvider muiTheme={getMuiTheme(theme)}>
     <div className={styles.app} >
       <AppBar
-        title="驾考检测控制后台"
-        iconClassNameRight="muidocs-icon-navigation-expand-more"
+        className={styles.header}
+        title="机动车安全技术检验监管图片智能审核系统"
+        titleStyle={{textAlign: 'center'}}
+        iconStyleLeft={{marginLeft: 70}}
+        iconStyleRight={{marginRight: 70}}
+        iconElementLeft={<img src={logo} />}
+        iconElementRight={<IconButton iconStyle={{width: 40, height: 40}} style={{width: 60, height: 60}}> <ListIcon /> </IconButton>}
+        zDepth={2}
       />
-      <div className={styles.content}>
-        <Paper style={aSide}>
-          <Menu>
-            <MenuItem
-              containerElement={<Link to="/video" />}
-              primaryText="查看摄像头"
-            />
-            <MenuItem
-              containerElement={<Link to="/analog" />}
-              primaryText="模拟上级指令"
-            />
-
-          </Menu>
-        </Paper>
-        <Paper style={styleCenter} >
-          {props.children}
-
-        </Paper>
-      </div>
+      {props.children}
     </div>
   </MuiThemeProvider>
 );
