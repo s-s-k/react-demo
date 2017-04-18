@@ -12,6 +12,7 @@ import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
+import videoImg from './images/timg.jpg';
 const aSide = {
   textAlign: 'center',
   display: 'inline-block',
@@ -91,16 +92,22 @@ class Detail extends React.Component {
                   }
                 };
                 const selectLable = (type) => {
-                  if(type === '')
+                  return '图片类型';
+                }
+                const selectImg = (v) => {
+                  if (!v.is_video) {
+                    return v.name;
+                  }
+                  return videoImg;
                 }
                 return (
                   <div key={value.id} className={styles.itemOk}>
-                    <div className={styles.header}>kkkkk</div>
+                    <div className={styles.header}>{selectLable(value.category)}</div>
 
                     <img
                       width="100%"
                       className={selectStyle(value.result)}
-                      src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1491881963&di=67275035bf216da3ebffd3c70f30e648&src=http://img181.poco.cn/mypoco/myphoto/20110315/17/54704062201103151711088752081084673_012.jpg"
+                      src={selectImg(value)}
                     />
                     {selectIcon(value.result)}
                   </div>
