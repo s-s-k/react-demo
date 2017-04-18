@@ -10,7 +10,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-
+import axios from 'axios';
 const aSide = {
   textAlign: 'center',
   display: 'inline-block',
@@ -23,8 +23,30 @@ const GridListStyle = {
   margin: 10
 };
 class Detail extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      infos: {
+        vehicle_check: {},
+        check_infos: []
+      }
+    };
+  }
   componentDidMount () {
-
+    axios.get('api/check_infos', {params: this.props.location.query})
+    .then((response) => {
+      console.log(response.data);
+      this.setState((state) => {
+        state.infos.vehicle_check = response.data.vehicle_check;
+        state.infos.check_infos = response.data.check_infos;
+        return state;
+      });
+    })
+    .catch((error) => {
+      if (error) {
+        console.log(error);
+      }
+    });
   }
   componentWillUnmonut () {
 
